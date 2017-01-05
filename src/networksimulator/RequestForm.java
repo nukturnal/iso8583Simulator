@@ -6,130 +6,177 @@
 package networksimulator;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import  java.util.*;
+import java.util.*;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
+
 /**
  *
  * @author wael
  */
 public class RequestForm extends javax.swing.JFrame {
+
     List<field> s = new ArrayList<field>();
-    public static String Message ;
+    public static String Message;
+
     /**
      * Creates new form RequestForm
      */
     public RequestForm() {
-               
+
         initComponents();
-       
-        
-        
-        try {	
-         File inputFile = new File("Message"+Message+".xml");
-         DocumentBuilderFactory dbFactory 
-            = DocumentBuilderFactory.newInstance();
-         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-         Document doc = dBuilder.parse(inputFile);
-         doc.getDocumentElement().normalize();
-         System.out.println("Root element :"  + doc.getDocumentElement().getNodeName());
-         NodeList nList = doc.getElementsByTagName("field");
-         System.out.println("----------------------------");
-        
-         for (int temp = 0; temp < nList.getLength(); temp++) {
-            Node nNode = nList.item(temp);
-            System.out.println("\nCurrent Element :" + nNode.getNodeName());
-            if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-               Element eElement = (Element) nNode;             
-              
-               if(Integer.parseInt(eElement.getAttribute("id"))==7){
-             
-                 }
-               
-               try{
-                        s.add(new field(Integer.parseInt(eElement.getAttribute("id"))
-                                ,eElement.getAttribute("name"),null,
-                                eElement.getAttribute("status").charAt(0),
-                                eElement.getAttribute("encoding"),eElement.getTextContent(),eElement.getAttribute("type")));
-                       }
-              catch(Exception ex){
-                        s.add(new field(Integer.parseInt(eElement.getAttribute("id"))
-                                 ,eElement.getAttribute("name"),null,
-                                 ' ',
-                                 eElement.getAttribute("encoding"),eElement.getTextContent(),eElement.getAttribute("type")));
-                        }
-               
-               
-               
-               System.out.println("Field Id : " + eElement.getAttribute("id"));
-               System.out.println("name : " + eElement.getAttribute("name"));
-               System.out.println("status : " + eElement.getAttribute("status"));
-               System.out.println("encoding : " + eElement.getAttribute("encoding"));
-               System.out.println("type : " + eElement.getAttribute("type"));
-               
+
+        try {
+            File inputFile = new File("Message" + Message + ".xml");
+            DocumentBuilderFactory dbFactory
+                    = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(inputFile);
+            doc.getDocumentElement().normalize();
+            System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
+            NodeList nList = doc.getElementsByTagName("field");
+            System.out.println("----------------------------");
+
+            for (int temp = 0; temp < nList.getLength(); temp++) {
+                Node nNode = nList.item(temp);
+                System.out.println("\nCurrent Element :" + nNode.getNodeName());
+                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                    Element eElement = (Element) nNode;
+
+                    switch (Integer.parseInt(eElement.getAttribute("id"))) {
+
+                        case 7:
+                            try {
+                                s.add(new field(Integer.parseInt(eElement.getAttribute("id")), eElement.getAttribute("name"), null,
+                                        eElement.getAttribute("status").charAt(0),
+                                        eElement.getAttribute("encoding"), Transaction.getField7(), eElement.getAttribute("type")));
+                            } catch (Exception ex) {
+                                s.add(new field(Integer.parseInt(eElement.getAttribute("id")), eElement.getAttribute("name"), null,
+                                        ' ',
+                                        eElement.getAttribute("encoding"), Transaction.getField7(), eElement.getAttribute("type")));
+                            }
+
+                            break;
+                        case 11:
+
+                            try {
+                                s.add(new field(Integer.parseInt(eElement.getAttribute("id")), eElement.getAttribute("name"), null,
+                                        eElement.getAttribute("status").charAt(0),
+                                        eElement.getAttribute("encoding"), Transaction.stan, eElement.getAttribute("type")));
+                            } catch (Exception ex) {
+                                s.add(new field(Integer.parseInt(eElement.getAttribute("id")), eElement.getAttribute("name"), null,
+                                        ' ',
+                                        eElement.getAttribute("encoding"), Transaction.stan, eElement.getAttribute("type")));
+                            }
+
+                            break;
+                        case 12:
+                            try {
+                                s.add(new field(Integer.parseInt(eElement.getAttribute("id")), eElement.getAttribute("name"), null,
+                                        eElement.getAttribute("status").charAt(0),
+                                        eElement.getAttribute("encoding"), Transaction.getField12(), eElement.getAttribute("type")));
+                            } catch (Exception ex) {
+                                s.add(new field(Integer.parseInt(eElement.getAttribute("id")), eElement.getAttribute("name"), null,
+                                        ' ',
+                                        eElement.getAttribute("encoding"), Transaction.getField12(), eElement.getAttribute("type")));
+                            }
+
+                            break;
+                        case 37:
+                            SimpleDateFormat yyDDmm = new SimpleDateFormat("yyMMdd");
+                            String RRN = yyDDmm.format(Transaction.d) + Transaction.stan;
+                            try {
+                                s.add(new field(Integer.parseInt(eElement.getAttribute("id")), eElement.getAttribute("name"), null,
+                                        eElement.getAttribute("status").charAt(0),
+                                        eElement.getAttribute("encoding"), RRN, eElement.getAttribute("type")));
+                            } catch (Exception ex) {
+                                s.add(new field(Integer.parseInt(eElement.getAttribute("id")), eElement.getAttribute("name"), null,
+                                        ' ',
+                                        eElement.getAttribute("encoding"), RRN, eElement.getAttribute("type")));
+                            }
+
+                            break;
+
+                        default:
+                            try {
+                                s.add(new field(Integer.parseInt(eElement.getAttribute("id")), eElement.getAttribute("name"), null,
+                                        eElement.getAttribute("status").charAt(0),
+                                        eElement.getAttribute("encoding"), eElement.getTextContent(), eElement.getAttribute("type")));
+                            } catch (Exception ex) {
+                                s.add(new field(Integer.parseInt(eElement.getAttribute("id")), eElement.getAttribute("name"), null,
+                                        ' ',
+                                        eElement.getAttribute("encoding"), eElement.getTextContent(), eElement.getAttribute("type")));
+                            }
+                            break;
+
+                    }
+
+                    System.out.println("Field Id : " + eElement.getAttribute("id"));
+                    System.out.println("name : " + eElement.getAttribute("name"));
+                    System.out.println("status : " + eElement.getAttribute("status"));
+                    System.out.println("encoding : " + eElement.getAttribute("encoding"));
+                    System.out.println("Value :" + eElement.getTextContent() );
+                    System.out.println("type : " + eElement.getAttribute("type"));
+
+                }
             }
-         }
-        
-         
-      } catch (Exception e) {
-         e.printStackTrace();
-      }
-        if(!Message.equals(null)){
-                Object[][] fields = new Object[s.size()][5];
-         for(int i = 0 ; i <s.size();i++){
-         fields[i][0] = s.get(i).getId();
-         fields[i][1] = s.get(i).getName();
-         fields[i][2] = s.get(i).getLength();
-         fields[i][3] = s.get(i).getStatus();
-         fields[i][4] = s.get(i).getValue();
-          
-         }
-                jTable1.setModel(new javax.swing.table.DefaultTableModel(
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (!Message.equals(null)) {
+            Object[][] fields = new Object[s.size()][5];
+            for (int i = 0; i < s.size(); i++) {
+                fields[i][0] = s.get(i).getId();
+                fields[i][1] = s.get(i).getName();
+                fields[i][2] = s.get(i).getLength();
+                fields[i][3] = s.get(i).getStatus();
+                fields[i][4] = s.get(i).getValue();
+
+            }
+            jTable1.setModel(new javax.swing.table.DefaultTableModel(
                     fields,
-                    new String [] {
+                    new String[]{
                         "id", "name", "length", "M/C", "value"
                     }
-                ) {
-                    Class[] types = new Class [] {
-                        java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-                    };
+            ) {
+                Class[] types = new Class[]{
+                    java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                };
 
-                    public Class getColumnClass(int columnIndex) {
-                        return types [columnIndex];
-                    }
-                });
-        }
-        else{
-                
-                
-        
-                jTable1.setModel(new javax.swing.table.DefaultTableModel(
-                    new Object [][] {
+                public Class getColumnClass(int columnIndex) {
+                    return types[columnIndex];
+                }
+            });
+        } else {
+
+            jTable1.setModel(new javax.swing.table.DefaultTableModel(
+                    new Object[][]{
                         {null, null, null, null, null},
                         {null, null, null, null, null},
                         {null, null, null, null, null},
                         {null, null, null, null, null}
                     },
-                    new String [] {
+                    new String[]{
                         "id", "name", "length", "M/C", "value"
                     }
-                ) {
-                    Class[] types = new Class [] {
-                        java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-                    };
+            ) {
+                Class[] types = new Class[]{
+                    java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                };
 
-                    public Class getColumnClass(int columnIndex) {
-                        return types [columnIndex];
-                    }
-                });
-             }
-        
-        
+                public Class getColumnClass(int columnIndex) {
+                    return types[columnIndex];
+                }
+            });
+        }
+
     }
 
     /**
@@ -196,85 +243,75 @@ public class RequestForm extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
-        String MessageToSend = "";
-    try{    
-        GeneralFunction.writeLog("Start "+Message+" transaction");
-        GeneralFunction.writeLog("----------------------------------------");
-        
-        for(int i = 0; i< jTable1.getRowCount();i++){   
-            if( !jTable1.getModel().getValueAt(i, 4).toString().equals("")){
-                switch(s.get(i).getEncoding()){
-                    case "ASCII":
-                        if(s.get(i).getType().contains("L")){      
-                            int occurance = countChar(s.get(i).getType(),'L');
-                            String appededmessage = GeneralFunction.convertHexToString(jTable1.getModel().getValueAt(i, 4).toString());
-                            Message = Message +String.format("%0"+occurance+"d",appededmessage.length() )  + appededmessage  ;                        
-                         }
-                        else{
-                        Message = Message + GeneralFunction.convertHexToString(jTable1.getModel().getValueAt(i, 4).toString());
-                        }
-                        break;
-                    case "Binary":
-                        if(s.get(i).getType().contains("L")){
-                                int occurance = countChar(s.get(i).getType(),'L');
-                                String appededmessage = GeneralFunction.convertHexToString(jTable1.getModel().getValueAt(i, 4).toString());
-                                Message = Message +String.format("%0"+occurance+"d",appededmessage.length() )  + appededmessage  ;                        
-                        }
-                        else{
-                                Message = Message + GeneralFunction.convertHexToString(jTable1.getModel().getValueAt(i, 4).toString());
-                        }
-                        break;
-                    case "UTF8":
-                        if(s.get(i).getType().contains("L")){
-                                int occurance = countChar(s.get(i).getType(),'L');
-                                String appededmessage = jTable1.getModel().getValueAt(i, 4).toString();
-                                Message = Message +String.format("%0"+occurance+"d",appededmessage.length() )  + appededmessage  ;                        
-                        }else{                      
-                                Message = Message + jTable1.getModel().getValueAt(i, 4).toString();
-                        }
-                        break;
-                    default:
-                        break;
-                }
-                 
-                
-                //GeneralFunction.writeLog("Index: " + i + " id : "+ (String) jTable1.getModel().getValueAt(i, 0) + " Value : " +(String) jTable1.getModel().getValueAt(i, 4));            
-            }
-        }
-        System.out.println("Message : " + Message);
-        Message =  String.format("%04d", Message.length()) + Message;
-        GeneralFunction.writeLog("Generated Message : " + new String(Message.getBytes("ISO-8859-1")));
-       
-       Client.sendData(Message.getBytes("ISO-8859-1"),new Client().getClientSocket());
-    
-    }
-    catch(Exception e){
-    e.printStackTrace();
-    }
 
-        
-        
-        
+        String MessageToSend = "";
+        try {
+            GeneralFunction.writeLog("Start " + Message + " transaction");
+            GeneralFunction.writeLog("----------------------------------------");
+
+            for (int i = 0; i < jTable1.getRowCount(); i++) {
+                if (!jTable1.getModel().getValueAt(i, 4).toString().equals("")) {
+                    switch (s.get(i).getEncoding()) {
+                        case "ASCII":
+                            if (s.get(i).getType().contains("L")) {
+                                int occurance = countChar(s.get(i).getType(), 'L');
+                                String appededmessage = GeneralFunction.convertHexToString(jTable1.getModel().getValueAt(i, 4).toString());
+                                Message = Message + String.format("%0" + occurance + "d", appededmessage.length()) + appededmessage;
+                            } else {
+                                Message = Message + GeneralFunction.convertHexToString(jTable1.getModel().getValueAt(i, 4).toString());
+                            }
+                            break;
+                        case "Binary":
+                            if (s.get(i).getType().contains("L")) {
+                                int occurance = countChar(s.get(i).getType(), 'L');
+                                String appededmessage = GeneralFunction.convertHexToString(jTable1.getModel().getValueAt(i, 4).toString());
+                                Message = Message + String.format("%0" + occurance + "d", appededmessage.length()) + appededmessage;
+                            } else {
+                                Message = Message + GeneralFunction.convertHexToString(jTable1.getModel().getValueAt(i, 4).toString());
+                            }
+                            break;
+                        case "UTF8":
+                            if (s.get(i).getType().contains("L")) {
+                                int occurance = countChar(s.get(i).getType(), 'L');
+                                String appededmessage = jTable1.getModel().getValueAt(i, 4).toString();
+                                Message = Message + String.format("%0" + occurance + "d", appededmessage.length()) + appededmessage;
+                            } else {
+                                Message = Message + jTable1.getModel().getValueAt(i, 4).toString();
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+
+                    //GeneralFunction.writeLog("Index: " + i + " id : "+ (String) jTable1.getModel().getValueAt(i, 0) + " Value : " +(String) jTable1.getModel().getValueAt(i, 4));            
+                }
+            }
+            System.out.println("Message : " + Message);
+            Message = String.format("%04d", Message.length()) + Message;
+            GeneralFunction.writeLog("Generated Message : " + new String(Message.getBytes("ISO-8859-1")));
+
+            Client.sendData(Message.getBytes("ISO-8859-1"), new Client().getClientSocket());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    
-    public int countChar(String str,char temp){
-    
-    int charCount = 0;
+    public int countChar(String str, char temp) {
 
-            for( int i = 0; i < str.length( ); i++ )
-            {
-                if(temp == str.charAt( i )){
-                charCount++;   }
+        int charCount = 0;
+
+        for (int i = 0; i < str.length(); i++) {
+            if (temp == str.charAt(i)) {
+                charCount++;
             }
+        }
 
-    return charCount;
+        return charCount;
     }
-    
-    
-    
-    
+
     /**
      * @param args the command line arguments
      */
