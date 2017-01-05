@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<ISOmessage>    
+        <field id="1" type="b 128" name="Secondary Bitmap " status="M" encoding="ASCII">F6366F01A8E5FA100000000000000001</field>
+        <field id="2" type="LLVAR n ..19" name="Primary account number" status="M" encoding="UTF8">6234420823007278</field>
+        <field id="3" type="n 6" name="Processing code" status="M" encoding="UTF8">310000</field>
+        <field id="4" type="n 12" name="Transaction amount" status="M" encoding="UTF8">000000000000</field>
+        <field id="5" type="n 12" name="Reconciliation amount" status="M" encoding="UTF8"></field>
+        <field id="6" type="n 12" name="Cardholder billing amount" status="M" encoding="UTF8">000000000000</field>
+        <field id="7" type="n 10" name="Transmission date and time" status="M" encoding="UTF8">1109073920</field>
+        <field id="9" type="n 8" name="Reconciliation exchange rate" status="M" encoding="UTF8"></field>
+        <field id="10" type="n 8" name="Cardholder billing exchange rate" status="M" encoding="UTF8"></field>
+        <field id="11" type="n 6" name="Trace audit number" status="M" encoding="UTF8">954401</field>
+        <field id="12" type="n 6" name="Transaction local date and time" status="M" encoding="UTF8">161109113920</field>
+        <field id="14" type="n 4" name="Expiry date" status="M" encoding="UTF8">2104</field>
+        <field id="15" type="n 4" name="Settlement date" status="M" encoding="UTF8">161109</field>
+        <field id="16" type="n 4" name="Exchange date" status="M" encoding="UTF8"></field>
+        <field id="18" type="n 4" name="Merchant type" status="M" encoding="UTF8">6011</field>
+        <field id="19" type="n 3" name="Receiving institution country code" status="M" encoding="UTF8">784</field>
+        <field id="21" type="n 3" name="Forwarding institution country code" status="M" encoding="UTF8">784</field>
+        <field id="22" type="n 3" name="POS data" status="M" encoding="UTF8">51140151124C</field>
+        <field id="23" type="n 3" name="Card sequential number" status="C" encoding="UTF8">001</field>
+        <field id="24" type="n 3" name="Function code" status="M" encoding="UTF8">200</field>
+        <field id="27" type="n 1" name="Length of authorization code " status="" encoding="UTF8"></field>
+        <field id="32" type="LLVAR  n ..11" name="Receiving institution ID code" status="M" encoding="UTF8">512604904</field>
+        <field id="33" type="LLVAR  n ..11" name="Forwarding institution ID code" status="M" encoding="UTF8">000001</field>
+        <field id="35" type="LLVAR z ..37" name="Track II" status="C" encoding="UTF8">356234420823007278D210422013590915000</field>
+        <field id="37" type="an 12" name="Reference number" status="M" encoding="UTF8">631411954401</field>
+        <field id="38" type="an 6" name="Authorization number" status="" encoding="UTF8"></field>
+        <field id="39" type="an 2" name="Action code" status="" encoding="UTF8"></field>
+        <field id="41" type="ans 8" name="Card acceptor terminal identification" status="M" encoding="UTF8">NIBMOE02</field>
+        <field id="42" type="ans 15" name="Card acceptor identification code" status="M" encoding="UTF8">0000000142</field>
+        <field id="43" type="LLVAR ans 40" name="Card acceptor name/address" status="M" encoding="UTF8">NOOR MOE              DUBAI          AE</field>
+        <field id="45" type="LLVAR an ..76" name="Track I" status="C" encoding="UTF8"></field>
+        <field id="46" type="an ...999" name="Fees amount" status="C" encoding="UTF8">C00000000</field>
+        <field id="48" type="LLLVAR an ...999" name="Additional data" status="C" encoding="UTF8">00505014</field>
+        <field id="49" type="a or n 3" name="Transaction currency code" status="M" encoding="UTF8">784</field>
+        <field id="50" type="a or n 3" name="Reconciliation currency code" status="M" encoding="UTF8">784</field>
+        <field id="51" type="a or n 3" name="Cardholder billing currency code" status="M" encoding="UTF8">784</field>
+        <field id="52" type="b 64" name="PIN data" status="C" encoding="Binary">58EE039F24E55E5E</field>
+        <field id="53" type="LLVAR  n 16" name="Security data" status="M" encoding="UTF8">0101000000</field>
+        <field id="54" type="LLLVAR an ...120" name="Extra amounts" status="" encoding="UTF8"></field>
+        <field id="55" type="LLLVAR ans ...999" name="Chip card related data" status="C" encoding="ASCII">5329F0608A0000003330101019F2701809F3303604020950580000480009F370436C7A9E69F1E0800000000000000019F100807010103A02000019F26085D660F5745F7EA4A9F3602014982027C009C01319F1A0207849A031611099F02060000000000005F2A0207849F030600000000000057136234420823007278D21042201359091500000F5A1036323334343230383233303037323738303034</field>
+        <field id="60" type="LLLVAR ans ...999" name="Reserved for national use" status="C" encoding="UTF8">0132</field>
+        <field id="61" type="ans ...999" name="Reserved for national use" status="" encoding="UTF8"></field>
+        <field id="62" type="LLLVAR ans ...999" name="Reserved for private use" status="" encoding="UTF8"></field>
+        <field id="102" type="LLVAR ans ..28" name="Account I identification" status="C" encoding="UTF8"></field>
+        <field id="103" type="LLVAR ans ..28" name="Account II identification" status="C" encoding="UTF8"></field>
+        <field id="128" type="b 64" name="Messages authentication code" status="M" encoding="ASCII">D83E364DFFFFFFFF</field>		
+</ISOmessage>

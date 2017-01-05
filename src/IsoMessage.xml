@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<ISOmessage>
+  <field id="1"  dataelement="b64"   name="Bit map (b 128 if secondary is present and b 192 if tertiary is present)" encoding="ASCII" ></field>
+  <field id="2"  dataelement="n..19" name="Primary account number (PAN)" encoding="UTF8" ></field>
+  <field id="3"  dataelement="n6"    name="Processing code" encoding="UTF8" ></field>
+  <field id="4"  dataelement="n12"   name="Amount, transaction" encoding="UTF8" ></field>
+  <field id="5"  dataelement="n12"   name="Amount, settlement" encoding="UTF8" ></field>
+  <field id="6"  dataelement="n12"   name="Amount, cardholder billing" encoding="UTF8" ></field>
+  <field id="7"  dataelement="n10"   name="Transmissiondate & time" encoding="UTF8" ></field>
+  <field id="8"  dataelement="n8"    name="Amount, cardholder billing fee" encoding="UTF8" ></field>
+  <field id="9"  dataelement="n8"    name="Conversionrate, settlement" encoding="UTF8" ></field>
+  <field id="10" dataelement="n8"    name="Conversionrate, cardholder billing" encoding="UTF8" ></field>
+  <field id="11" dataelement="n6"    name="System trace audit number (STAN)" encoding="UTF8" ></field>
+  <field id="12" dataelement="n6"    name="Time, local transaction(hhmmss)" encoding="UTF8" ></field>
+  <field id="13" dataelement="n4"    name="Date, local transaction(MMDD)" encoding="UTF8" ></field>
+  <field id="14" dataelement="n4"    name="Date, expiration" encoding="UTF8" ></field>
+  <field id="15" dataelement="n4"    name="Date, settlement" encoding="UTF8" ></field>
+  <field id="16" dataelement="n4"    name="Date, conversion" encoding="UTF8" ></field>
+  <field id="17" dataelement="n4"    name="Date, capture" encoding="UTF8" ></field>
+  <field id="18" dataelement="n4"    name="Merchant type" encoding="UTF8" ></field>
+  <field id="19" dataelement="n3"    name="Acquiring institutioncountry code" encoding="UTF8" ></field>
+  <field id="20" dataelement="n3"    name="PAnextended, country code" encoding="UTF8" ></field>
+  <field id="21" dataelement="n3"    name="Forwarding institution. country code" encoding="UTF8" ></field>
+  <field id="22" dataelement="n3"    name="Point of service entry mode" encoding="UTF8" ></field>
+  <field id="23" dataelement="n3"    name="ApplicationPAnsequence number" encoding="UTF8" ></field>
+  <field id="24" dataelement="n3"    name="Functioncode (ISO 8583:1993)/Network International identifier (NII)" encoding="UTF8" ></field>
+  <field id="25" dataelement="n2"    name="Point of service conditioncode" encoding="UTF8" ></field>
+  <field id="26" dataelement="n2"    name="Point of service capture code" encoding="UTF8" ></field>
+  <field id="27" dataelement="n1"    name="Authorizing identificationresponse length" encoding="UTF8" ></field>
+  <field id="28" dataelement="x+n8"  name="Amount, transactionfee" encoding="UTF8" ></field>
+  <field id="29" dataelement="x+n8"  name="Amount, settlement fee" encoding="UTF8" ></field>
+  <field id="30" dataelement="x+n8"  name="Amount, transactionprocessing fee" encoding="UTF8" ></field>
+  <field id="31" dataelement="x+n8"  name="Amount, settlement processing fee" encoding="UTF8" ></field>
+  <field id="32" dataelement="n..11" name="Acquiring institutionidentificationcode" encoding="UTF8" ></field>
+  <field id="33" dataelement="n..11" name="Forwarding institutionidentificationcode" encoding="UTF8" ></field>
+  <field id="34" dataelement="ns..28" name="Primary account number, extended" encoding="UTF8" ></field>
+  <field id="35" dataelement="z..37" name="Track 2 data" encoding="UTF8" ></field>
+  <field id="36" dataelement="n...104" name="Track 3 data" encoding="UTF8" ></field>
+  <field id="37" dataelement="an12" name="Retrieval reference number" encoding="UTF8" ></field>
+  <field id="38" dataelement="an6" name="Authorizationidentificationresponse" encoding="UTF8" ></field>
+  <field id="39" dataelement="an2" name="Response code" encoding="UTF8" ></field>
+  <field id="40" dataelement="an3" name="Service restrictioncode" encoding="UTF8" ></field>
+  <field id="41" dataelement="ans 8" name="Card acceptor terminal identification" encoding="UTF8" ></field>
+  <field id="42" dataelement="ans 15" name="Card acceptor identificationcode" encoding="UTF8" ></field>
+  <field id="43" dataelement="ans 40" name="Card acceptor name/location(1-23 address 24-36 city 37-38 state 39-40 country)" encoding="UTF8" ></field>
+  <field id="44" dataelement="an..25" name="Additional response data" encoding="UTF8" ></field>
+  <field id="45" dataelement="an..76" name="Track 1 data" encoding="UTF8" ></field>
+  <field id="46" dataelement="an...999" name="Additional data - ISO" encoding="UTF8" ></field>
+  <field id="47" dataelement="an...999" name="Additional data - national" encoding="UTF8" ></field>
+  <field id="48" dataelement="an...999" name="Additional data - private" encoding="UTF8" ></field>
+  <field id="49" dataelement="a or n3" name="Currency code, transaction" encoding="UTF8" ></field>
+  <field id="50" dataelement="a or n3" name="Currency code, settlement" encoding="UTF8" ></field>
+  <field id="51" dataelement="a or n3" name="Currency code, cardholder billing" encoding="UTF8" ></field>
+  <field id="52" dataelement="b 64" name="Personal identificationnumber data" encoding="UTF8" ></field>
+  <field id="53" dataelement="n16" name="Security related control information" encoding="UTF8" ></field>
+  <field id="54" dataelement="an...120" name="Additional amounts" encoding="UTF8" ></field>
+  <field id="55" dataelement="ans ...999" name="ICC Data - EMV having multiple tags" encoding="UTF8" ></field>
+  <field id="56" dataelement="ans ...999" name="Reserved ISO" encoding="UTF8" ></field>
+  <field id="57" dataelement="ans ...999" name="Reserved national" encoding="UTF8" ></field>
+  <field id="58" dataelement="ans ...999" name="Reserved national" encoding="UTF8" ></field>
+  <field id="59" dataelement="ans ...999" name="Reserved national" encoding="UTF8" ></field>
+  <field id="60" dataelement="ans ...999" name="Reserved national" encoding="UTF8" ></field>
+  <field id="61" dataelement="ans ...999" name="Reserved private" encoding="UTF8" ></field>
+  <field id="62" dataelement="ans ...999" name="Reserved private" encoding="UTF8" ></field>
+  <field id="63" dataelement="ans ...999" name="Reserved private" encoding="UTF8" ></field>
+  <field id="64" dataelement="b 16" name="Message authenticationcode (MAC)" encoding="UTF8" ></field>
+  <field id="65" dataelement="b 1" name="Bitmap, extended" encoding="UTF8" ></field>
+  <field id="66" dataelement="n1" name="Settlement code" encoding="UTF8" ></field>
+  <field id="67" dataelement="n2" name="Extended payment code" encoding="UTF8" ></field>
+  <field id="68" dataelement="n3" name="Receiving institutioncountry code" encoding="UTF8" ></field>
+  <field id="69" dataelement="n3" name="Settlement institutioncountry code" encoding="UTF8" ></field>
+  <field id="70" dataelement="n3" name="Network management informationcode" encoding="UTF8" ></field>
+  <field id="71" dataelement="n4" name="Message number" encoding="UTF8" ></field>
+  <field id="72" dataelement="n4" name="Message number, last" encoding="UTF8" ></field>
+  <field id="73" dataelement="n6" name="Date, action(YYMMDD)" encoding="UTF8" ></field>
+  <field id="74" dataelement="n10" name="Credits, number" encoding="UTF8" ></field>
+  <field id="75" dataelement="n10" name="Credits, reversal number" encoding="UTF8" ></field>
+  <field id="76" dataelement="n10" name="Debits, number" encoding="UTF8" ></field>
+  <field id="77" dataelement="n10" name="Debits, reversal number" encoding="UTF8" ></field>
+  <field id="78" dataelement="n10" name="Transfer number" encoding="UTF8" ></field>
+  <field id="79" dataelement="n10" name="Transfer, reversal number" encoding="UTF8" ></field>
+  <field id="80" dataelement="n10" name="Inquiries number" encoding="UTF8" ></field>
+  <field id="81" dataelement="n10" name="Authorizations, number" encoding="UTF8" ></field>
+  <field id="82" dataelement="n12" name="Credits, processing fee amount" encoding="UTF8" ></field>
+  <field id="83" dataelement="n12" name="Credits, transactionfee amount" encoding="UTF8" ></field>
+  <field id="84" dataelement="n12" name="Debits, processing fee amount" encoding="UTF8" ></field>
+  <field id="85" dataelement="n12" name="Debits, transactionfee amount" encoding="UTF8" ></field>
+  <field id="86" dataelement="n16" name="Credits, amount" encoding="UTF8" ></field>
+  <field id="87" dataelement="n16" name="Credits, reversal amount" encoding="UTF8" ></field>
+  <field id="88" dataelement="n16" name="Debits, amount" encoding="UTF8" ></field>
+  <field id="89" dataelement="n16" name="Debits, reversal amount" encoding="UTF8" ></field>
+  <field id="90" dataelement="n42" name="Original data elements" encoding="UTF8" ></field>
+  <field id="91" dataelement="an1" name="File update code" encoding="UTF8" ></field>
+  <field id="92" dataelement="an2" name="File security code" encoding="UTF8" ></field>
+  <field id="93" dataelement="an5" name="Response indicator" encoding="UTF8" ></field>
+  <field id="94" dataelement="an7" name="Service indicator" encoding="UTF8" ></field>
+  <field id="95" dataelement="an42" name="Replacement amounts" encoding="UTF8" ></field>
+  <field id="96" dataelement="b 64" name="Message security code" encoding="UTF8" ></field>
+  <field id="97" dataelement="x+n16" name="Amount, net settlement" encoding="UTF8" ></field>
+  <field id="98" dataelement="ans 25" name="Payee" encoding="UTF8" ></field>
+  <field id="99" dataelement="n..11" name="Settlement institutionidentificationcode" encoding="UTF8" ></field>
+  <field id="100" dataelement="n..11" name="Receiving institutionidentificationcode" encoding="UTF8" ></field>
+  <field id="101" dataelement="ans ..17" name="File name" encoding="UTF8" ></field>
+  <field id="102" dataelement="ans ..28" name="Account identification1" encoding="UTF8" ></field>
+  <field id="103" dataelement="ans ..28" name="Account identification2" encoding="UTF8" ></field>
+  <field id="104" dataelement="ans ...100" name="Transactiondescription" encoding="UTF8" ></field>
+  <field id="105" dataelement="ans ...999" name="Reserved for ISO use" encoding="UTF8" ></field>
+  <field id="106" dataelement="ans ...999" name="Reserved for ISO use" encoding="UTF8" ></field>
+  <field id="107" dataelement="ans ...999" name="Reserved for ISO use" encoding="UTF8" ></field>
+  <field id="108" dataelement="ans ...999" name="Reserved for ISO use" encoding="UTF8" ></field>
+  <field id="109" dataelement="ans ...999" name="Reserved for ISO use" encoding="UTF8" ></field>
+  <field id="110" dataelement="ans ...999" name="Reserved for ISO use" encoding="UTF8" ></field>
+  <field id="111" dataelement="ans ...999" name="Reserved for ISO use" encoding="UTF8" ></field>
+  <field id="112" dataelement="ans ...999" name="Reserved for national use" encoding="UTF8" ></field>
+  <field id="113" dataelement="ans ...999" name="Reserved for national use" encoding="UTF8" ></field>
+  <field id="114" dataelement="ans ...999" name="Reserved for national use" encoding="UTF8" ></field>
+  <field id="115" dataelement="ans ...999" name="Reserved for national use" encoding="UTF8" ></field>
+  <field id="116" dataelement="ans ...999" name="Reserved for national use" encoding="UTF8" ></field>
+  <field id="117" dataelement="ans ...999" name="Reserved for national use" encoding="UTF8" ></field>
+  <field id="118" dataelement="ans ...999" name="Reserved for national use" encoding="UTF8" ></field>
+  <field id="119" dataelement="ans ...999" name="Reserved for national use" encoding="UTF8" ></field>
+  <field id="120" dataelement="ans ...999" name="Reserved for private use" encoding="UTF8" ></field>
+  <field id="121" dataelement="ans ...999" name="Reserved for private use" encoding="UTF8" ></field>
+  <field id="122" dataelement="ans ...999" name="Reserved for private use" encoding="UTF8" ></field>
+  <field id="123" dataelement="ans ...999" name="Reserved for private use" encoding="UTF8" ></field>
+  <field id="124" dataelement="ans ...999" name="Reserved for private use" encoding="UTF8" ></field>
+  <field id="125" dataelement="ans ...999" name="Reserved for private use" encoding="UTF8" ></field>
+  <field id="126" dataelement="ans ...999" name="Reserved for private use" encoding="UTF8" ></field>
+  <field id="127" dataelement="ans ...999" name="Reserved for private use" encoding="UTF8" ></field>
+  <field id="128" dataelement="b 64" name="Message authenticationcode" encoding="UTF8" ></field>
+</ISOmessage>

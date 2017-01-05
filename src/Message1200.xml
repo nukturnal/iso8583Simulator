@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<ISOmessage>    
+<field id="1" name="Secondary Bitmap " status="M" encoding="ASCII"></field>
+<field id="2" name="Primary account number" status="M" encoding="UTF8"></field>
+<field id="3" name="Processing code" status="M" encoding="UTF8"></field>
+<field id="4" name="Transaction amount" status="M" encoding="UTF8"></field>
+<field id="5" name="Reconciliation amount" status="M" encoding="UTF8"></field>
+<field id="6" name="Cardholder billing amount" status="M" encoding="UTF8"></field>
+<field id="7" name="Transmission date and time" status="M" encoding="UTF8"></field>
+<field id="9" name="Reconciliation exchange rate" status="M" encoding="UTF8"></field>
+<field id="10" name="Cardholder billing exchange rate" status="M" encoding="UTF8"></field>
+<field id="11" name="Trace audit number" status="M" encoding="UTF8"></field>
+<field id="12" name="Transaction local date and time" status="M" encoding="UTF8"></field>
+<field id="14" name="Expiry date" status="M" encoding="UTF8"></field>
+<field id="15" name="Settlement date" status="M" encoding="UTF8"></field>
+<field id="16" name="Exchange date" status="M" encoding="UTF8"></field>
+<field id="18" name="Merchant type" status="M" encoding="UTF8"></field>
+<field id="19" name="Receiving institution country code" status="M" encoding="UTF8"></field>
+<field id="21" name="Forwarding institution country code" status="M" encoding="UTF8"></field>
+<field id="22" name="POS data" status="M" encoding="UTF8"></field>
+<field id="23" name="Card sequential number" status="C" encoding="UTF8"></field>
+<field id="24" name="Function code" status="M" encoding="UTF8"></field>
+<field id="27" name="Length of authorization code " status="" encoding="UTF8"></field>
+<field id="32" name="Receiving institution ID code" status="M" encoding="UTF8"></field>
+<field id="33" name="Forwarding institution ID code" status="M" encoding="UTF8"></field>
+<field id="35" name="Track II" status="C" encoding="UTF8"></field>
+<field id="37" name="Reference number" status="M" encoding="UTF8"></field>
+<field id="38" name="Authorization number" status="" encoding="UTF8"></field>
+<field id="39" name="Action code" status="" encoding="UTF8"></field>
+<field id="41" name="Card acceptor terminal identification" status="M" encoding="UTF8"></field>
+<field id="42" name="Card acceptor identification code" status="M" encoding="UTF8"></field>
+<field id="43" name="Card acceptor name/address" status="M" encoding="UTF8"></field>
+<field id="45" name="Track I" status="C" encoding="UTF8"></field>
+<field id="46" name="Fees amount" status="C" encoding="UTF8"></field>
+<field id="48" name="Additional data" status="C" encoding="UTF8"></field>
+<field id="49" name="Transaction currency code" status="M" encoding="UTF8"></field>
+<field id="50" name="Reconciliation currency code" status="M" encoding="UTF8"></field>
+<field id="51" name="Cardholder billing currency code" status="M" encoding="UTF8"></field>
+<field id="52" name="PIN data" status="C" encoding="UTF8"></field>
+<field id="53" name="Security data" status="M" encoding="UTF8"></field>
+<field id="54" name="Extra amounts" status="" encoding="UTF8"></field>
+<field id="55" name="Chip card related data" status="C" encoding="UTF8"></field>
+<field id="60" name="Reserved for national use" status="C" encoding="UTF8"></field>
+<field id="61" name="Reserved for national use" status="" encoding="UTF8"></field>
+<field id="62" name="Reserved for private use" status="" encoding="UTF8"></field>
+<field id="102" name="Account I identification" status="C" encoding="UTF8"></field>
+<field id="103" name="Account II identification" status="C" encoding="UTF8"></field>
+<field id="128" name="Messages authentication code" status="M" encoding="UTF8"></field>
+</ISOmessage>
