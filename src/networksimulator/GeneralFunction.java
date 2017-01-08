@@ -22,7 +22,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
-import static networksimulator.NetworkSimulator.hexArray;
+
 
 /**
  *
@@ -30,6 +30,7 @@ import static networksimulator.NetworkSimulator.hexArray;
  */
 public class GeneralFunction {
     
+final protected static char[] hexArray = "0123456789ABCDEF".toCharArray();  
     
     public static String convertHexToString(String hex){
 
@@ -52,47 +53,7 @@ public class GeneralFunction {
 
 	  return sb.toString();
   }
-    
-    public static void sendMessageToServer(byte[] str) {	
-	try{
-            
-            Socket socket = new Socket("192.168.30.54", 9190);
- 
-            //Send the message to the server
-            OutputStream os = socket.getOutputStream();
-            OutputStreamWriter osw = new OutputStreamWriter(os);
-            BufferedWriter bw = new BufferedWriter(osw);
-            os.write(str);            
-            os.flush();
-           
-            
-            System.out.println("Message sent to the server : "+new String(str));
- 
-            
-            //Get the return message from the server
-            InputStream is = socket.getInputStream();      
-            InputStreamReader isr = new InputStreamReader(is);
-            BufferedReader br = new BufferedReader(isr);           
-          
-            StringBuilder sb = new StringBuilder();
-            for(int j = 0 ; j <  4 ; j++){
-            sb.append((char)br.read());
-            }
-            
-            for(int i = 0 ; i<Integer.parseInt(sb.toString());i++){               
-            System.out.println("Message received from the server index :"+ i +" message : "+ (char) br.read());
-         }
-                
-            
-                   
-            //int length = Integer.parseInt(message.substring(3));   
-            
-        }
-        catch(Exception e){
-            e.printStackTrace();
-        }
-}
-    
+
     public byte[] FormISOMessage (String Length,String MTI,String Bitmap, HashMap<String,String> isoFields){
     byte[] myBytes  = null;
       
@@ -111,64 +72,6 @@ public class GeneralFunction {
     }
     return everything.toString();
 }
-    
-    public static  void receiveMsg(){
-			new Thread(new Runnable()
-			{
-				@Override
-				public void run() {
-					// TODO Auto-generated method stub
-
-					//final  String host="opuntia.cs.utep.edu";
-					final String host="10.0.2.2";
-					//final String host="localhost";
-					Socket socket = null ;
-					BufferedReader in = null;
-					try {
-						socket = new Socket(host,8008);
-					} catch (UnknownHostException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-
-					try {
-						in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-
-					while(true)
-					{
-						String msg = null;
-						try {
-							msg = in.readLine();
-							//Log.d("","MSGGG:  "+ msg);
-
-							//msgList.add(msg);
-						} catch (IOException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-						if(msg == null)
-						{
-							break;
-						}
-						else
-						{
-                                                    System.out.print(msg);
-							//displayMsg(msg);
-						}
-					}
-
-				}
-			}).start();
-
-
-		}
       
     public static String bytesToHex(byte[] bytes) {
         
@@ -195,19 +98,58 @@ public class GeneralFunction {
     return MessageHex.toUpperCase();
     }
     
-    
     public static  void writeLog(String Message) throws FileNotFoundException, UnsupportedEncodingException, IOException{
-DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
-DateFormat dateFormat2 = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
-Date date = new Date();
-System.out.println(dateFormat.format(date));
+            DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
+            DateFormat dateFormat2 = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
+            Date date = new Date();
+            System.out.println(dateFormat.format(date));
 
-PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter("Log_"+dateFormat.format(date)+".txt", true)));
-writer.println(dateFormat2.format(date) + " : " + Message);    
-writer.close();
+            PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter("Log_"+dateFormat.format(date)+".txt", true)));
+            writer.println(dateFormat2.format(date) + " : " + Message);    
+            writer.close();
+    }  
 
+    
+    public static void writeResponse(String response) throws FileNotFoundException, UnsupportedEncodingException, IOException{
+     DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
+            DateFormat dateFormat2 = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
+            Date date = new Date();
+            System.out.println(dateFormat.format(date));
 
-
-}  
-
+            PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter("Log_"+dateFormat.format(date)+".txt", true)));
+           
+            String line = "";
+            for(int i = 0 ; i<response.length();i++){               
+                if(i%10==0 && i != 0){
+                line = line + response.charAt(i);
+                String temp =  bytesToHex(line.getBytes());
+                writer.println(dateFormat2.format(date) + " : " + sepratehex(temp) + "      |"+ line + "|" );
+                line= "";
+                }
+                else{
+                line = line + response.charAt(i);               
+                }
+               
+         }
+           
+            writer.close();
+    }
+    
+    
+    static String sepratehex(String mystring){
+            String corrected= "";
+            
+            for(int i = 0 ; i<mystring.length();i++){
+                
+                if(i%2==0){
+                corrected = corrected +" " +  mystring.charAt(i);       
+                }
+                else{
+                 corrected = corrected +  mystring.charAt(i); 
+                }
+            }
+            
+            
+      return corrected ;
+    }
 }
